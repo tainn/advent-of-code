@@ -2,7 +2,7 @@
 
 from p1 import rps_score_if_followed
 
-OUTCOMES: dict = {
+OUTCOMES: dict[str: int] = {
     "A X": 3,
     "A Y": 4,
     "A Z": 8,
