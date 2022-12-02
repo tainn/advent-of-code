@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-from d01p1 import elves_to_calories
+from p1 import elves_to_calories
 
 
 def n_most_calories_carried(elves: defaultdict, n: int) -> int:
