@@ -10,3 +10,4 @@ personal sources for the [advent of code 2022](https://adventofcode.com/2022) ch
 - 02: rock paper scissors
 - 03: rucksack reorganization
 - 04: camp cleanup
+- 05: supply stacks
