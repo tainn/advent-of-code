@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-OUTCOMES: dict[str:int] = {
+OUTCOMES: dict[str, int] = {
     "A X": 4,
     "A Y": 8,
     "A Z": 3,

@@ -14,7 +14,7 @@ Initial crate structure:
  1   2   3   4   5   6   7   8   9
 """
 
-CRATE_STRUCT: dict[int:list[str]] = {
+CRATE_STRUCT: dict[int, list[str]] = {
     1: ["M", "J", "C", "B", "F", "R", "L", "H"],
     2: ["Z", "C", "D"],
     3: ["H", "J", "F", "C", "N", "G", "W"],
