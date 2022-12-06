@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from src.ext import IN
+
 OUTCOMES: dict[str, int] = {
     "A X": 4,
     "A Y": 8,
@@ -14,12 +16,9 @@ OUTCOMES: dict[str, int] = {
 
 
 def rps_score_if_followed(outcomes: dict) -> int:
-    with open("input", "r") as rf:
-        data: str = rf.read().strip()
-
     total: int = 0
 
-    for play in data.splitlines():
+    for play in IN.splitlines():
         total += outcomes[play]
 
     return total

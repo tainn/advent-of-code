@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
+from src.ext import IN
+
 
 def overlapping() -> int:
-    with open("input", "r") as rf:
-        data: str = rf.read().strip()
-
     counter: int = 0
 
-    for pair in data.splitlines():
+    for pair in IN.splitlines():
         part1, part2 = pair.split(",")
         (part1s, part1e), (part2s, part2e) = (
             map(int, part1.split("-")),

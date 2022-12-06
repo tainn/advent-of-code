@@ -2,14 +2,13 @@
 
 import string
 
+from src.ext import IN
+
 
 def shared_item_per_rucksack() -> list[str]:
-    with open("input", "r") as rf:
-        data: str = rf.read().strip()
-
     shared_items: list[str] = []
 
-    for rucksack in data.splitlines():
+    for rucksack in IN.splitlines():
         compart1, compart2 = (
             rucksack[: len(rucksack) // 2],
             rucksack[len(rucksack) // 2 :],

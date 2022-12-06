@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from src.ext import IN
+
 """
 Initial crate structure:
 
@@ -28,10 +30,7 @@ CRATE_STRUCT: dict[int, list[str]] = {
 
 
 def stack_top_crates() -> str:
-    with open("input", "r") as rf:
-        data: str = rf.read().strip()
-
-    for line in data.splitlines():
+    for line in IN.splitlines():
         cuts: list[str] = line.split()
         quantity, from_stack, to_stack = (
             int(cuts[1]),
