@@ -71,18 +71,18 @@ def line_type(line: str) -> str:
 
 
 def get_core_map(init_path: Path) -> dict[str, int]:
-    flat_map: dict[str, int] = defaultdict(int)
+    core_map: dict[str, int] = defaultdict(int)
 
     for root, _, files in os.walk(init_path / "root"):
         local_root: str = root.replace(f"{str(init_path)}/", "")
         filesizes: int = sum(map(int, files))
-        flat_map[local_root] += filesizes
+        core_map[local_root] += filesizes
 
-        for key in flat_map:
+        for key in core_map:
             if key in local_root and key != local_root:
-                flat_map[key] += filesizes
+                core_map[key] += filesizes
 
-    return flat_map
+    return core_map
 
 
 if __name__ == "__main__":
