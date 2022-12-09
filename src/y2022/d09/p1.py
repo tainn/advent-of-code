@@ -12,7 +12,7 @@ def tail_position_visits() -> int:
         mv_direction: str = move.split()[0]
         mv_amount: int = int(move.split()[1])
 
-        for _ in range(1, mv_amount + 1):
+        for _ in range(mv_amount):
 
             match mv_direction:
                 case "L":
