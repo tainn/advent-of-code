@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 
-def monkey_business() -> int:
+def monkey_business(rounds: int, relief: bool) -> int:
     # order: operation > floor 3 division > test
 
     # initial inventory state
@@ -21,16 +21,17 @@ def monkey_business() -> int:
     monkey_inspect: defaultdict[int, int] = defaultdict(int)
     remove_stack: list[int] = []
 
-    for round_ in range(20):
+    for _ in range(rounds):
         for monkey in range(8):
             for item in monkey_inv[monkey]:
                 monkey_inspect[monkey] += 1
 
                 monkey_op: int = monkey_operation(monkey, item)
-                relief: int = monkey_op // 3
-                throw_to: int = monkey_test_throw(monkey, relief)
+                multmod: int = 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19  # mult of all division criteria
+                worry: int = monkey_op // 3 if relief else monkey_op % multmod
+                throw_to: int = monkey_test_throw(monkey, worry)
 
-                monkey_inv[throw_to].append(relief)
+                monkey_inv[throw_to].append(worry)
                 remove_stack.append(item)
 
             for item in remove_stack:
@@ -61,16 +62,16 @@ def monkey_operation(monkey: int, old: int) -> int:
     return monkey_ops[monkey]
 
 
-def monkey_test_throw(monkey: int, relief: int) -> int:
+def monkey_test_throw(monkey: int, worry: int) -> int:
     monkey_test: dict[int, bool] = {
-        0: relief % 17 == 0,
-        1: relief % 7 == 0,
-        2: relief % 13 == 0,
-        3: relief % 2 == 0,
-        4: relief % 19 == 0,
-        5: relief % 3 == 0,
-        6: relief % 5 == 0,
-        7: relief % 11 == 0,
+        0: worry % 17 == 0,
+        1: worry % 7 == 0,
+        2: worry % 13 == 0,
+        3: worry % 2 == 0,
+        4: worry % 19 == 0,
+        5: worry % 3 == 0,
+        6: worry % 5 == 0,
+        7: worry % 11 == 0,
     }
 
     monkey_throw: dict[int, int] = {
@@ -88,4 +89,4 @@ def monkey_test_throw(monkey: int, relief: int) -> int:
 
 
 if __name__ == "__main__":
-    print(monkey_business())
+    print(monkey_business(rounds=20, relief=True))
